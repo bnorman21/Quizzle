@@ -10,8 +10,30 @@ Table: Question
 * num_correct (int)
 * total_answered (int)
 * prompt (text)
-* choices (dict --> [key: int, value: text])
-* users_correct (set --> [user_ids]) *foreign keys*
-* users_incorrect (set --> [user_ids]) *foreign keys*
+* choices (dict [key: int, value: text])
+* users_correct (set [user_ids]) *foreign keys*
+* users_incorrect (set [user_ids]) *foreign keys*
 
+Table: Quiz
+* quiz_id (primary key, int)
+* quiz_name (text)
+* quiz_category (text)
+* questions (dict [key: question_num, value: Question]) *foreign keys*
+* results (dict [key: user_id, value: float]) *foreign keys*
+* num_qs (int)
+* question_start_id (int) *foreign key*
+
+Table: User
+* user_id (primary key, int)
+* quizzes_taken (set [quiz_id]) *foreign keys
+* name (text, nullable)
+
+Table: Quizzle
+* quizzes (dict [key: quiz_id, value: Quiz]) *foreign keys*
+* users (dict [key: user_id, value: User]) *foreign keys*
+* questions (dict [key: question_id, value: quiz_id of Question])
+* category2quiz (dict [key: category, value: list of quiz_ids in category])
+* quiz_num (int)
+* user_num (int)
+* question_num (int)
 
