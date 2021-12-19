@@ -1,6 +1,6 @@
 # Quizzle
 
-*Question 1*
+## *Question 1*
 
 Table: Question
 * question_id (primary key, int)
