@@ -1,7 +1,4 @@
 # Quizzle
-## The world's greatest quiz website!
-
-It is currently soley run through a local terminal. Im hoping to make a fully working Quizzle through the termninal, then use flask to migrate it into a web application
 
 ```python3 quizzle.py``` to run
 
