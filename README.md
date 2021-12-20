@@ -129,4 +129,26 @@ Method called within the question class:
 ``` 
 
 ###### *Here is how I would approach it in a true relational data base setting*
+``` 
+def get_question_scoring_avg(question_id):
+# Given: QuestionScore object, with fields:
+# - id (int)
+# - question_id (int)
+# - user_id (int)
+# - correct (boolean)
+# - timestamp (datetime)
+#
+# TODO: fill this in!
+    scores = QuestionScore.query.filter(QuestionScore.question_id == question_id)
+    users_correct = set()
+    num_correct = 0
+    print ("Users who answered correctly: ")
+    for s in scores:
+        if (s.correct == True):
+            num_correct += 1
+            if (s.user_id not in users_correct):
+                print(s.user_id)
+                users_correct.add(s.user_id)
+    print ("Percentage correct:",float(num_correct/len(scores)) * 100, "%")
+``` 
 
