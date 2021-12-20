@@ -1,4 +1,4 @@
-# Quizzle
+# Quizzle Questionnair
 
 ## *Question 1*
 
@@ -86,5 +86,22 @@ Table: Quizzle
 * num_quizzes (int)
 * user_num (int)
 * question_num (int)
+
+## *Question 2*
+
+'''
+def get_user_scoring_avg(user_id):
+  # Get scores corresponding to this user_id
+  scores = QuizScore.query.filter(QuizScore.user_id == user_id)
+  numerator = 0
+  denominator = 0
+  for score in scores:
+    # num_correct is an int
+    numerator += score.num_correct
+    # get_num_questions returns an int - assume this works correctly
+    denominator += get_num_questions(score.quiz)
+    # Should return a number between 0.0 and 1.0
+  return numerator // denominator
+'''
 
 
