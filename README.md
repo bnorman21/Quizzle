@@ -105,6 +105,30 @@ def get_user_scoring_avg(user_id):
 
 ## *Question 3*
 
+###### *Here is how I would approach it in a true relational data base setting*
+``` 
+def get_question_scoring_avg(question_id):
+# Given: QuestionScore object, with fields:
+# - id (int)
+# - question_id (int)
+# - user_id (int)
+# - correct (boolean)
+# - timestamp (datetime)
+#
+# TODO: fill this in!
+    scores = QuestionScore.query.filter(QuestionScore.question_id == question_id)
+    users_correct = set()
+    num_correct = 0
+    print ("Users who answered correctly: ")
+    for s in scores:
+        if (s.correct == True):
+            num_correct += 1
+            if (s.user_id not in users_correct):
+                print(s.user_id)
+                users_correct.add(s.user_id)
+    print ("Percentage correct:",float(num_correct/len(scores)) * 100, "%")
+``` 
+
 ###### *Here is how I approached creating get_question_scoring_avg within the application I made*
 
 Method in the Quizzle class:
@@ -133,29 +157,6 @@ Method called within the question class:
         print ("Percent of responses correct: ", float(self.numCorrect/self.totalAnswered) * 100, "%")
 ``` 
 
-###### *Here is how I would approach it in a true relational data base setting*
-``` 
-def get_question_scoring_avg(question_id):
-# Given: QuestionScore object, with fields:
-# - id (int)
-# - question_id (int)
-# - user_id (int)
-# - correct (boolean)
-# - timestamp (datetime)
-#
-# TODO: fill this in!
-    scores = QuestionScore.query.filter(QuestionScore.question_id == question_id)
-    users_correct = set()
-    num_correct = 0
-    print ("Users who answered correctly: ")
-    for s in scores:
-        if (s.correct == True):
-            num_correct += 1
-            if (s.user_id not in users_correct):
-                print(s.user_id)
-                users_correct.add(s.user_id)
-    print ("Percentage correct:",float(num_correct/len(scores)) * 100, "%")
-``` 
 ## *Question 4*
 Had no previous experience, so skipped for now
 
@@ -170,7 +171,7 @@ import os
 TWILIO_API_KEY = os.environ.get("PRIVATE_TWILIO_API_KEY")
 
 ``` 
-Find instructions on how to create envrioment variables [here] (https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#macos-and-linux)
+Find instructions on how to create envrioment variables here: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#macos-and-linux
 
 
 ## *Question 6*
