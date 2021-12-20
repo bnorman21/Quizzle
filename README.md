@@ -1,6 +1,8 @@
 # Quizzle
 ## The world's greatest quiz website!
 
+python3 quizzle.py to run
+
 *Here are the inputs you can make for the program*
 * Make Quiz: 0
 * Take Quiz: 1
