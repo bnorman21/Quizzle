@@ -77,16 +77,6 @@ Table: User
 * user_id (primary key, int)
 * name (text, nullable)
 
-Table: Quizzle
-* quizzes (dict [key: quiz_id, value: Quiz]) *foreign keys*
-* users (dict [key: user_id, value: User]) *foreign keys*
-* questions (dict [key: question_id, value: Question]) *foreign keys*
-* question_scores (dict [key: question_score_id, value: Question Score]) *foreign keys*
-* quiz_scores (dict [key: quiz_score_id, value: Quiz Score]) *foreign keys*
-* num_quizzes (int)
-* user_num (int)
-* question_num (int)
-
 ## *Question 2*
 
 ```
@@ -106,4 +96,3 @@ def get_user_scoring_avg(user_id):
 numerator += score.num_correct is incorrect. It should be numerator += score.percentage_correct
 denominator += get_num_questions(score.quiz) is incorrect. It should be denominator += 1
 return numerator // denominator is incorrect. It should be return float(numerator/denominator)
-
