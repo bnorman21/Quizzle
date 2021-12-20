@@ -70,7 +70,7 @@ Table: Quiz Score
 * quiz_id (int) *foreign key*
 * user_id (int) *foreign key*
 * result (float)
-* 
+* num_correct
 * timestamp (datetime)
 
 Table: User
