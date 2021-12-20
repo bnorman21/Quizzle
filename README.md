@@ -2,8 +2,43 @@
 
 ## *Question 1*
 
-###### *Here is how I constructed my database for Quizzle. It is not a true relational database, but it made the most sense for me when constructing the application:*
+###### *Here is how I think a true relational database would look like*
+Table: Question
+* question_id (primary key, int)
+* question_num (int)
+* quiz_id (int) *foreign key*
+* correct_option (int)
+* num_correct (int)
+* total_answered (int)
+* prompt (text)
+* choices (dict [key: int, value: text])
 
+Table: Question Score
+* question_score_id (primary key, int)
+* question_id (int) *foreign key*
+* user_id (int) *foreign key*
+* correct (boolean)
+* timestamp (datetime)
+
+Table: Quiz
+* quiz_id (primary key, int)
+* quiz_name (text)
+* quiz_category (text)
+* num_qs (int)
+
+Table: Quiz Score
+* quiz_score_id (primary key, int)
+* quiz_id (int) *foreign key*
+* user_id (int) *foreign key*
+* result (float)
+* num_correct (int)
+* timestamp (datetime)
+
+Table: User
+* user_id (primary key, int)
+* name (text, nullable)
+
+###### *Here is how I constructed my database for Quizzle. It is not a true relational database, but it made the most sense for me when constructing the application:*
 Table: Question
 * question_id (primary key, int)
 * question_num (int)
@@ -38,44 +73,6 @@ Table: Quizzle
 * quiz_num (int)
 * user_num (int)
 * question_num (int)
-
-###### *Here is how I think a true relational database would look like*
-
-Table: Question
-* question_id (primary key, int)
-* question_num (int)
-* quiz_id (int) *foreign key*
-* correct_option (int)
-* num_correct (int)
-* total_answered (int)
-* prompt (text)
-* choices (dict [key: int, value: text])
-
-Table: Question Score
-* question_score_id (primary key, int)
-* question_id (int) *foreign key*
-* user_id (int) *foreign key*
-* correct (boolean)
-* timestamp (datetime)
-
-
-Table: Quiz
-* quiz_id (primary key, int)
-* quiz_name (text)
-* quiz_category (text)
-* num_qs (int)
-
-Table: Quiz Score
-* quiz_score_id (primary key, int)
-* quiz_id (int) *foreign key*
-* user_id (int) *foreign key*
-* result (float)
-* num_correct (int)
-* timestamp (datetime)
-
-Table: User
-* user_id (primary key, int)
-* name (text, nullable)
 
 ## *Question 2*
 
