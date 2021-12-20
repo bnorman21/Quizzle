@@ -93,6 +93,8 @@ def get_user_scoring_avg(user_id):
     # Should return a number between 0.0 and 1.0
   return numerator // denominator
 ```
-numerator += score.num_correct is incorrect. It should be numerator += score.percentage_correct
-denominator += get_num_questions(score.quiz) is incorrect. It should be denominator += 1
-return numerator // denominator is incorrect. It should be return float(numerator/denominator)
+Here are the bugs I found:
+* ``` numerator += score.num_correct ``` is incorrect. It should be ```numerator += score.percentage_correct```
+* ```denominator += get_num_questions(score.quiz)``` is incorrect. It should be ```denominator += 1```
+* ```return numerator // denominator``` is incorrect. It should be ```return float(numerator/denominator)```
+
