@@ -1,7 +1,9 @@
 # Quizzle
 ## The world's greatest quiz website!
 
-python3 quizzle.py to run
+It is currently soley run through a local terminal. Im hoping to make a fully working Quizzle through the termninal, then use flask to migrate it into a web application
+
+```python3 quizzle.py``` to run
 
 *Here are the inputs you can make for the program*
 * Make Quiz: 0
@@ -11,3 +13,9 @@ python3 quizzle.py to run
 * Entire Current Data Base: 4
 * Generate Valid Anagrams: 5
 * End Program: 6
+
+*Notes*
+* Must first make a quiz before taking a quiz
+* Quizzle autogenerates a Quiz ID after a quiz is created
+* Quizzle autogenerates a User ID for every new user
+* Both these IDs should be remembered
