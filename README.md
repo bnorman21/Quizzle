@@ -2,7 +2,7 @@
 
 ## *Question 1*
 
-###### *Here is how I constructed my database for Quizzle. It is not a true relational database, but it made the most sense for me when constructing the application:*
+## *Here is how I constructed my database for Quizzle. It is not a true relational database, but it made the most sense for me when constructing the application:*
 
 Table: Question
 * question_id (primary key, int)
@@ -39,7 +39,7 @@ Table: Quizzle
 * user_num (int)
 * question_num (int)
 
-###### *Here is how I suppose a true relational database would look like*
+## *Here is how I suppose a true relational database would look like*
 
 Table: Question
 * question_id (primary key, int)
