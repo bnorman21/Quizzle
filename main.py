@@ -472,7 +472,6 @@ class Quizzle:
                 print ("Program ended")
                 break
             elif (val == 7):
-                self.print_buffer()
                 self.print_instructions()
             self.print_end_buffer()       
 
