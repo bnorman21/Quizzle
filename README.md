@@ -98,3 +98,6 @@ Here are the bugs I found:
 * ```denominator += get_num_questions(score.quiz)``` is incorrect. It should be ```denominator += 1```
 * ```return numerator // denominator``` is incorrect. It should be ```return float(numerator/denominator)```
 
+## *Question 3*
+
+
