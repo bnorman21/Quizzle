@@ -429,7 +429,7 @@ class Quizzle:
         print ("Take Quiz: 1")
         print ("Average Quiz Score for User: 2")
         print ("Statistics on a Question: 3")
-        print ("Entire Current Data Base: 4")
+        print ("See Entire Current Data Base: 4")
         print ("Generate Valid Anagrams: 5")
         print ("End Program: 6")
     
