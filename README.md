@@ -64,7 +64,6 @@ Table: Quiz
 * quiz_name (text)
 * quiz_category (text)
 * num_qs (int)
-* question_start_id (int) *foreign key*
 
 Table: Quiz Score
 * quiz_score_id (primary key, int)
