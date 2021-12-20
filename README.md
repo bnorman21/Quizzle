@@ -39,7 +39,7 @@ Table: Quizzle
 * user_num (int)
 * question_num (int)
 
-###### *Here is how I suppose a true relational database would look like*
+###### *Here is how I think a true relational database would look like*
 
 Table: Question
 * question_id (primary key, int)
@@ -164,7 +164,17 @@ Had no previous experience, so skipped for now
 
 
 ## *Question 5*
-I would implement an RSA technique #TODO --> expand in a paragraph
+* I would use an enviromennt variable saved in the production servers where Quizzle is run
+* Because the enviorment variable is not in the code itself, we dont need to restrict its information when it is pushed to GitHub
+
+Here is an example of how to do so: 
+``` 
+import os
+TWILIO_API_KEY = os.environ.get("PRIVATE_TWILIO_API_KEY")
+
+``` 
+Find instructions on how to create envrioment variables [here] (https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#macos-and-linux)
+
 
 ## *Question 6*
 
