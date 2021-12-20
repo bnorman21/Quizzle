@@ -100,4 +100,33 @@ Here are the bugs I found:
 
 ## *Question 3*
 
+###### *Here is how I approached creating get_question_scoring_avg within the application I made*
+
+Method in the Quizzle class:
+``` 
+def get_question_scoring_avg (self, questionId: int):
+        if questionId in self.questions:
+            quizId = self.questions[questionId]
+            if quizId in self.quizzes:
+                quiz = self.quizzes[quizId]
+                question = quiz.questionId2question(questionId)
+                if (type(question) == Question):
+                    question.printStats() 
+                else:
+                    print("ERROR: Question id not found in quiz")
+            else:
+                print("ERROR: Quiz id not found in quiz data base")
+        else:
+            print("ERROR: Question id not found in question data base")
+```
+Method called within the question class:
+``` 
+    def printStats (self):
+        print ("Users who have answered Quiz ", self.quizId, " Question ", self.questionNum, " correctly")
+        for x in self.usersCorrect:
+            print (x)
+        print ("Percent of responses correct: ", float(self.numCorrect/self.totalAnswered) * 100, "%")
+``` 
+
+###### *Here is how I would approach it in a true relational data base setting*
 
