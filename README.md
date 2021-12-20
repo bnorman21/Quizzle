@@ -159,6 +159,8 @@ I would implement an RSA technique #TODO --> expand in a paragraph
 
 ## *Question 6*
 
+Here is what I did in my Quizzle app. self.d refers to ```self.d = enchant.Dict("en_US")```. Other than that, all self contained. Feel free to test it out by running the program and entering 5
+
 ``` 
     def get_capitalized_anagrams(self, word: str):
         print("Generating anagrams for", word)
