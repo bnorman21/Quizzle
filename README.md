@@ -70,6 +70,7 @@ Table: Quiz Score
 * quiz_id (int) *foreign key*
 * user_id (int) *foreign key*
 * result (float)
+* 
 * timestamp (datetime)
 
 Table: User
@@ -78,6 +79,7 @@ Table: User
 
 ## *Question 2*
 
+Buggy
 ```
 def get_user_scoring_avg(user_id):
   # Get scores corresponding to this user_id
@@ -86,16 +88,23 @@ def get_user_scoring_avg(user_id):
   denominator = 0
   for score in scores:
     # num_correct is an int
-    numerator += score.num_correct
+    numerator += score.num_correct # += wrong
     # get_num_questions returns an int - assume this works correctly
-    denominator += get_num_questions(score.quiz)
+    denominator += get_num_questions(score.quiz) # += wrong
     # Should return a number between 0.0 and 1.0
-  return numerator // denominator
+  return numerator // denominator #wrong
 ```
-Here are the bugs I found:
-* ``` numerator += score.num_correct ``` is incorrect. It should be ```numerator += score.percentage_correct```
-* ```denominator += get_num_questions(score.quiz)``` is incorrect. It should be ```denominator += 1```
-* ```return numerator // denominator``` is incorrect. It should be ```return float(numerator/denominator)```
+Correct Solution
+```
+def get_user_scoring_avg(user_id):
+  # Get scores corresponding to this user_id
+  scores = QuizScore.query.filter(QuizScore.user_id == user_id)
+  sum = 0
+  for score in scores:
+    sum += float (score.num_correct/get_num_questions(score.quiz))
+  return float(sum/len(scores)) * 100
+```
+
 
 ## *Question 3*
 
