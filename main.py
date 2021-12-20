@@ -456,7 +456,10 @@ class Quizzle:
             if(val == 0):
                 self.makeQuiz()
             elif (val == 1):
-                self.setUpQuiz()
+                if (len(self.quizzes) == 0):
+                    print ("No quizzes available to take")
+                else:
+                    self.setUpQuiz()
             elif(val == 2):
                 self.user_avg_quiz_score_input()
             elif(val == 3):
@@ -479,5 +482,3 @@ def main():
 
 if __name__=="__main__":
     main()
-
-        
