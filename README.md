@@ -150,4 +150,53 @@ def get_question_scoring_avg(question_id):
                 users_correct.add(s.user_id)
     print ("Percentage correct:",float(num_correct/len(scores)) * 100, "%")
 ``` 
+## *Question 4*
+Had no previous experience, so skipped for now
 
+
+## *Question 5*
+I would implement an RSA technique #TODO --> expand in a paragraph
+
+## *Question 6*
+
+``` 
+    def get_capitalized_anagrams(self, word: str):
+        print("Generating anagrams for", word)
+        cap_index = set()
+        for x in range(0, len(word)):
+            if word[x].isupper():
+                cap_index.add(x)
+        word = word.lower()
+        input = list(word)
+        output = set()
+        length = len(word)
+        self.genPerms(input, output, cap_index, 0, length - 1)
+        print (output)
+        
+    """
+    The dictionary from pyEnchant is great to lookup if a string is a valid word but it cannot tell me if
+    a string is a prefix of any valid words. A prefix tree can do this pretty quickly and would be really helpful in
+    cutting down the permuations I need to do. I couldnt figure out how to iterate through the enchant.Dict("en_US")
+    dictionary to create a Trie but I think that would be a possible upgrade to the algorithm. 
+    
+    Possible draw backs of using a Trie is that initial cost of looping through the entire english dictionary and inserting
+    it into my Trie. Also the cost for turning each subset of the list into a string to check if the current permuation is a 
+    prefix of any valid words is not great, but it does potentially save the algorithm from performing a lot of extra iterations
+    """
+    def genPerms (self, input: list, output: list, cap_index: set, left: int, right: int):
+        if (left == right):
+            test = ''.join(input)
+            if (self.d.check(test) == True):
+                for x in cap_index:
+                    input[x] = input[x].upper()
+                a = ''.join(input)
+                output.add(a)
+                for x in cap_index:
+                    input[x] = input[x].lower()
+            return
+            
+        for i in range (left, right+1):
+            input[left], input[i] = input[i], input[left]
+            self.genPerms(input, output, cap_index, left + 1, right)
+            input[left], input[i] = input[i], input[left]
+``` 
