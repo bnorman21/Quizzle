@@ -411,7 +411,7 @@ class Quizzle:
             if (userId == -1):
                 break
         if (userId == -1):
-            self.newUser()
+            self.newUserQuiz()
         else:
             self.startQuiz(userId)
 
